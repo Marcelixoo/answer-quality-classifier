@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  label-studio:
+    image: heartexlabs/label-studio:latest
+    container_name: label-studio
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - label_studio_data:/label-studio/data
+    environment:
+      LABEL_STUDIO_EXTERNAL_URL: "http://localhost:8080"
+      LABEL_STUDIO_ENABLE_SIGNUP: "true"
+
+volumes:
+  label_studio_data:
